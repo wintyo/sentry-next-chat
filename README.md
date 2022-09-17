@@ -7,6 +7,7 @@
 ## 参考
 
 - [Next.js + Vercel と Sentry を連携させる](https://zenn.dev/keitakn/articles/add-sentry-to-nextjs-vercel)
+- [How to use Mongoose with Next.js for MongoDB?](https://blog.usman-s.me/how-to-use-mongoose-with-nextjs-for-mongodb)
 
 ---
 
