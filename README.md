@@ -1,5 +1,13 @@
 # Sentry でモニタリングできる Next チャットアプリ
 
+## 環境変数について
+
+ローカルで開発する場合は `.env.sample` を参考に適切な値を入れて `.env` ファイルを用意する。
+
+## 参考
+
+- [Next.js + Vercel と Sentry を連携させる](https://zenn.dev/keitakn/articles/add-sentry-to-nextjs-vercel)
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
