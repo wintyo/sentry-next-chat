@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 type FormData = {
   userId: string;
+  name: string;
   password: string;
 };
 
@@ -22,11 +23,19 @@ const SignupPage: NextPage = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>新規作成</h1>
       <label htmlFor="userId">ユーザID: </label>
       <input
         id="userId"
         type="text"
         {...register('userId', { required: true })}
+      />
+      <br />
+      <label htmlFor="userName">ユーザ名: </label>
+      <input
+        id="userName"
+        type="text"
+        {...register('name', { required: true })}
       />
       <br />
       <label htmlFor="password">パスワード:</label>
@@ -36,7 +45,7 @@ const SignupPage: NextPage = () => {
         {...register('password', { required: true })}
       />
       <br />
-      {formState.errors.userId || formState.errors.password ? (
+      {Object.keys(formState.errors).length > 0 ? (
         <div style={{ color: 'red' }}>入力必須です</div>
       ) : null}
       <button type="submit">送信</button>
