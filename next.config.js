@@ -23,6 +23,9 @@ const sentryWebpackPluginOptions = {
   //   urlPrefix, include, ignore
 
   silent: true, // Suppresses all logs
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
