@@ -15,6 +15,12 @@ const errorHandler = (err: unknown) => {
 
 export type SignupData = {
   userId: string;
+  name: string;
+  password: string;
+};
+
+export type SigninData = {
+  userId: string;
   password: string;
 };
 
@@ -38,6 +44,26 @@ export const api = {
         }
         console.log(res);
         return res.text();
+      })
+      .catch(errorHandler);
+  },
+  /**
+   * ログインする
+   * @param signinData - ログインデータ
+   */
+  signin: async (signinData: SigninData) => {
+    return fetch('/api/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(signinData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
       })
       .catch(errorHandler);
   },
