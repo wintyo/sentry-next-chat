@@ -23,12 +23,13 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     updateUser(state, action: PayloadAction<UpdateUserPayload>) {
+      const { userId, name } = action.payload;
       state.user = {
-        userId: action.payload.userId,
-        name: action.payload.name,
+        userId,
+        name,
       };
       configureScope((scope) => {
-        scope.setUser({ id: state.user.userId, username: state.user.name });
+        scope.setUser({ id: userId, username: name });
       });
     },
     setJwt(state, action: PayloadAction<string>) {
