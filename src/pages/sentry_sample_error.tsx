@@ -1,11 +1,16 @@
 import Head from 'next/head';
+import { NextPage } from 'next';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 
 const boxStyles = {
   padding: '12px',
   border: '1px solid #eaeaea',
   borderRadius: '10px',
 };
-export default function Home() {
+const SampleErrorPage: NextPage = () => {
+  const user = useSelector((state: RootState) => state.user);
+
   return (
     <div>
       <Head>
@@ -37,6 +42,12 @@ export default function Home() {
           </svg>
         </h1>
 
+        {user.user ? (
+          <div>
+            ユーザID: {user.user.userId} / 名前: {user.user.name}
+          </div>
+        ) : null}
+
         <p>Get started by sending us a sample error</p>
         <button
           type="button"
@@ -62,4 +73,6 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export default SampleErrorPage;

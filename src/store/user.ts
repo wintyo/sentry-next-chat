@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { configureScope } from '@sentry/nextjs';
 
 export type User = {
   userId: string;
@@ -26,6 +27,9 @@ export const userSlice = createSlice({
         userId: action.payload.userId,
         name: action.payload.name,
       };
+      configureScope((scope) => {
+        scope.setUser({ id: state.user.userId, username: state.user.name });
+      });
     },
     setJwt(state, action: PayloadAction<string>) {
       state.jwt = action.payload;
@@ -33,6 +37,9 @@ export const userSlice = createSlice({
     clearAll(state) {
       state.jwt = '';
       state.user = null;
+      configureScope((scope) => {
+        scope.setUser(null);
+      });
     },
   },
 });
