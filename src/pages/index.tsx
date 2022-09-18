@@ -36,6 +36,11 @@ const TopPage: NextPage = () => {
         ) : null}
         <button onClick={onCheckAuthButtonClick}>認証チェック</button>
         <button onClick={onLogoutButtonClick}>ログアウト</button>
+        <br />
+        <Link href="/sentry_sample_error">サンプルエラーページ</Link>
+        <hr />
+        <h2>チャット一覧</h2>
+        <div>WIP</div>
       </div>
     </AuthChecker>
   );

@@ -41,6 +41,8 @@ export default function Home() {
       </form>
       <br />
       <Link href="/signup">新規作成</Link>
+      <br />
+      <Link href="/sentry_sample_error">サンプルエラーページ</Link>
     </div>
   );
 }
