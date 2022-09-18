@@ -32,7 +32,7 @@ const handler: NextApiHandler = async (req, res) => {
           {
             userId: user.userId,
           },
-          process.env.JWT_SECRET || 'secret'
+          process.env.JWT_SECRET || ''
         ),
         user,
       });

@@ -20,6 +20,11 @@ const TopPage: NextPage = () => {
     router.push('/login');
   };
 
+  const onCheckAuthButtonClick = async () => {
+    const result = await api.checkAuth();
+    console.log(result);
+  };
+
   return (
     <AuthChecker>
       <div className={styles.container}>
@@ -29,6 +34,7 @@ const TopPage: NextPage = () => {
             ユーザID: {user.user.userId} / 名前: {user.user.name}
           </div>
         ) : null}
+        <button onClick={onCheckAuthButtonClick}>認証チェック</button>
         <button onClick={onLogoutButtonClick}>ログアウト</button>
       </div>
     </AuthChecker>
