@@ -63,7 +63,13 @@ export const api = {
         if (!res.ok) {
           throw res;
         }
-        return res.json();
+        return res.json() as Promise<{
+          token: string;
+          user: {
+            userId: string;
+            name: string;
+          };
+        }>;
       })
       .catch(errorHandler);
   },
