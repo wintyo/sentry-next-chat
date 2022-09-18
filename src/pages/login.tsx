@@ -23,6 +23,7 @@ export default function Home() {
     const res = await api.signin(data);
     console.log(res);
     dispatch(userSlice.actions.updateUser(res.user));
+    dispatch(userSlice.actions.setJwt(res.token));
     router.push('/');
   };
 

@@ -1,8 +1,4 @@
-import {
-  configureStore,
-  combineReducers,
-  EnhancedStore,
-} from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { userSlice } from './user';
 import {
   persistReducer,
@@ -56,14 +52,12 @@ const rootPersistConfig = {
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
-export const useStore = (): EnhancedStore => {
-  return configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-      }),
-  });
-};
+export const rootStore = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});

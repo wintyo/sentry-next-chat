@@ -6,12 +6,14 @@ export type User = {
 };
 
 export type UserState = {
+  jwt: string;
   user: User | null;
 };
 
 export type UpdateUserPayload = User;
 
 const initialState: UserState = {
+  jwt: '',
   user: null,
 };
 
@@ -25,7 +27,11 @@ export const userSlice = createSlice({
         name: action.payload.name,
       };
     },
-    clearUser(state) {
+    setJwt(state, action: PayloadAction<string>) {
+      state.jwt = action.payload;
+    },
+    clearAll(state) {
+      state.jwt = '';
       state.user = null;
     },
   },
