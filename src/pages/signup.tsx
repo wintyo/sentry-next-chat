@@ -18,7 +18,7 @@ const SignupPage: NextPage = () => {
     const result = await api.signup(data);
     console.log(result);
     toast.success('success');
-    router.push('/');
+    router.push('/login');
   };
 
   return (
